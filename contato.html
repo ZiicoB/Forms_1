@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPG Maps</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/contato.css" />
+    <link rel="stylesheet" href="/reset.css" />
+  </head>
+
+  <body>
+    <!-- LOGIN -->
+    <section class="container__contato">
+      <div class="card__contato">
+        <div class="painel__esquerdo">
+          <h2>Obrigado pelo contato!</h2>
+          <p>Prometemos dar um retorno o mais rápido possível. Enquanto isso, que tal dar uma olhada em nossas redes sociais?</p>
+          <button class="btn__outline">Login</button>
+
+          <a href="#" class="link__forgot">Perdeu a senha?</a>
+
+          <div class="social__icons">
+            <span>F</span>
+            <span>in</span>
+            <span>X</span>
+            <span>D</span>
+          </div>
+        </div>
+
+        <div class="painel__direito">
+          <h2>Contato</h2>
+
+          <form action="" id="forms" method="getup">
+            <fiealdset>
+              <input class="name-email" type="text" id="name" placeholder="Username" required />
+
+              <input class="name-email" type="email" id="email" placeholder="Email" required />
+
+              <div class="box-datatel">
+                <div>
+                  <label for="birthDate">Nascimento</label>
+                  <input type="date" id="nascimento" required />
+                </div>
+
+                <div>
+                  <label for="telnumber">Telefone</label>
+                  <input type="tel" id="telnumber" maxlength="16" placeholder="(00) 9-0000-0000" />
+                </div>
+              </div>
+
+              <div class="texto__container">
+                <textarea id="mensagem" placeholder="Digite sua mensagem aqui..." maxlength="900" required></textarea>
+                <span id="contador">900</span>
+              </div>
+
+              <div class="box_upload">
+                <label for="userImage">Arquivo</label>
+                <input type="file" id="upload" accept="image/*" name="userImage" />
+              </div>
+            </fiealdset>
+
+            <button type="submit" class="btn__submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS -->
+    <script src="/js/contato/contato.js"></script>
+    <script src="/js/contato/contato_tel.js"></script>
+    <script src="/js/contato/mensagens.js"></script>
+  </body>
+</html>
