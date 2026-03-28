@@ -74,6 +74,7 @@
 .painel__direito form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .painel__direito input {
@@ -89,6 +90,7 @@
   border-radius: 8px;
   border: 1px solid #ccc;
   outline: none;
+  width: 99%;
 }
 
 .box-datatel {
