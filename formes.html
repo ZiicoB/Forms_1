@@ -14,26 +14,30 @@
     <!-- LOGIN -->
     <section class="container__contato">
       <div class="card__contato">
-        <div class="painel__esquerdo">
+        <div class="painel">
           <h2>Contato</h2>
 
           <form action="" id="forms" method="getup">
-            <fiealdset>
+            <fieldset>
               <input class="name-email" type="text" id="name" placeholder="Username" required />
 
               <input class="name-email" type="email" id="email" placeholder="Email" required />
 
               <div class="box-datatel">
                 <div>
-                  <label  for="birthDate">Nascimento.</label>
+                  <label for="nascimento">Nascimento</label>
                   <input type="date" id="nascimento" required />
                 </div>
 
                 <div>
-                  <label  for="telnumber">Telefone.</label>
+                  <label for="telnumber">Telefone</label>
                   <input type="tel" id="telnumber" maxlength="16" placeholder="(00) 9-0000-0000" />
                 </div>
               </div>
+
+              <input class="name-email" type="text" id="assunto" placeholder="assunto" required />
+              
+              <hr>
 
               <div class="texto__container">
                 <textarea id="mensagem" placeholder="Digite sua mensagem aqui..." maxlength="900" required></textarea>
@@ -44,23 +48,15 @@
                 <label for="userImage">Arquivo</label>
                 <input type="file" id="upload" accept="image/*" name="userImage" />
               </div>
-            </fiealdset>
+            </fieldset>
+
+  
 
             <button type="submit" class="btn__submit">Enviar</button>
           </form>
         </div>
 
-        <div class="painel__direito">
-          <h2>Outras Info</h2>
-
-          <form action="" id="forms" method="getup">
-            <fiealdset>
-              
-            </fiealdset>
-
-            
-          </form>
-        </div>
+        
 
 
       </div>

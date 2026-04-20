@@ -5,6 +5,7 @@ document.getElementById("forms").addEventListener("submit", function (e) {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     nascimento: document.getElementById("nascimento").value,
+    telnumber: document.getElementById("telnumber").value,
     assunto: document.getElementById("assunto").value,
     mensagem: document.getElementById("mensagem").value,
   };
