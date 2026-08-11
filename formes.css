@@ -4,154 +4,219 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  outline: 1px solid rgba(255, 0, 0, 0.199);
 }
 
 /* CONTAINER PRINCIPAL */
-.container__contato {
+.container__formes {
   min-height: 100svh;
   display: flex;
   justify-content: center;
+  align-items: center;
   background: #162936;
+  padding: 2rem 1rem;
 }
 
 /* CARD */
-.card__contato {
-  display: flex;
-  justify-content: center;
-  width: 600px;
+.card__formes {
+  width: 520px;
   max-width: 100%;
-  background: #cdd5ddfa;
-  border-radius: 10px;
-  padding: 20px;
-  overflow: hidden;
+  background: #c0c7d1;
+  border-radius: 15px;
+  padding: 2.5rem 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.322);
 }
 
-/* PAINEL ESQUERDO */
-
-.painel {
-  width: 90%;
-}
-
-.painel h2 {
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #000000;
-  text-decoration: none;
-  font-weight: bold;
+.card__formes h2 {
   text-align: center;
-  margin-top: 2px;
+  margin-bottom: 25px;
+  color: #162936;
 }
 
 /* FORM */
-.painel form {
+.card__formes form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
-.painel input {
-  margin-bottom: 15px;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  outline: none;
+.card__formes fieldset {
+  border: none;
 }
 
-fieldset {
+.card__formes legend {
+  font-weight: bold;
+  font-size: 15px;
+  color: #162936;
+  margin-bottom: 10px;
+}
+
+/* GENERO */
+.radio__group {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.radio__item {
+  display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
+  font-size: 14px;
+  color: #162936;
+  cursor: pointer;
 }
 
-.name-email {
-  margin: 1px 0 0 0;
-  width: 60%;
-  padding: 10px;
-  box-sizing: border-box;
+.radio__item input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #27e9b5;
+  cursor: pointer;
 }
 
-.box-datatel {
+/* ESTADO CIVIL - ABAS SELECIONAVEIS */
+.tabs__estado-civil {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 16px;
-
-  font-size: 14px;
-  color: #000000;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: start;
- 
+  flex-wrap: wrap;
+  border: 1px solid #27e9b5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
 }
 
-.box-datatel input {
-  display: block;
-  margin-top: 5px; 
-}
-
-#telnumber {
-  max-width: 150px; 
-}
-
-.box_upload {
-  gap: 5px;
-  font-size: 14px;
-  color: #000000;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* LINKS */
-.link__forgot {
-  font-size: 13px;
-  color: #000000;
-  text-decoration: none;
-  text-align: center;
-  margin-top: 15px;
-}
-
-/*Box de texto*/
-.texto__container {
-  position: relative;
-  width: 100%;
-}
-
-.texto__container textarea {
-  width: 100%;
-  padding: 10px;
-  padding-bottom: 10px;
-  resize: vertical;
-  min-height: 120px;
-  max-height: 300px;
-}
-
-.texto__container span {
+.tabs__estado-civil input[type="radio"] {
   position: absolute;
-  bottom: 5px;
-  right: 10px;
-  font-size: 12px;
-  color: #666;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Botão enviar */
+.tabs__estado-civil label {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 13px;
+  color: #162936;
+  cursor: pointer;
+  border-right: 1px solid #27e9b5;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tabs__estado-civil label:last-of-type {
+  border-right: none;
+}
+
+.tabs__estado-civil input[type="radio"]:checked + label {
+  background: #27e9b5;
+  color: #162936;
+  font-weight: bold;
+}
+
+.tabs__estado-civil input[type="radio"]:focus-visible + label {
+  outline: 2px solid #162936;
+  outline-offset: -2px;
+}
+
+/* ESTADO - BOTAO QUE ABRE O MODAL */
+.btn__estado {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid #9aa4b2;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #162936;
+  cursor: pointer;
+}
+
+.btn__estado:hover {
+  border-color: #27e9b5;
+}
+
+.btn__estado.erro {
+  border-color: #e63946;
+}
+
+.icone__seta {
+  color: #27e9b5;
+}
+
+/* BOTAO ENVIAR */
 .btn__submit {
   padding: 12px;
   background: #27e9b5;
   border: none;
-  color: #000000;
+  color: #162936;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  
+  font-weight: bold;
 }
 
-hr {
-  width: 100%;
-  height: 2px;
-  background-color: #000000;
+.btn__submit:hover {
+  filter: brightness(0.95);
+}
+
+/* DIALOG - SELECAO DE ESTADO */
+.dialog__estado {
+  width: 480px;
+  max-width: 90vw;
+  max-height: 80vh;
   border: none;
-  margin: 2px 0;
+  border-radius: 15px;
+  padding: 1.5rem;
+  background: #c0c7d1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.322);
+}
+
+.dialog__estado::backdrop {
+  background: rgba(22, 41, 54, 0.6);
+}
+
+.dialog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.dialog__header h3 {
+  color: #162936;
+  font-size: 18px;
+}
+
+.btn__fechar {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: #162936;
+  cursor: pointer;
+}
+
+.dialog__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.item__estado {
+  text-align: left;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid #9aa4b2;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #162936;
+  cursor: pointer;
+}
+
+.item__estado:hover,
+.item__estado:focus-visible {
+  background: #27e9b5;
+  border-color: #27e9b5;
 }

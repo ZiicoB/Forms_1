@@ -1,70 +1,117 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RPG Maps</title>
+    <title>Formulário de Cadastro</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/formes.css" />
     <link rel="stylesheet" href="/reset.css" />
   </head>
 
   <body>
-    <!-- LOGIN -->
-    <section class="container__contato">
-      <div class="card__contato">
-        <div class="painel">
-          <h2>Contato</h2>
+    <section class="container__formes">
+      <div class="card__formes">
+        <h2>Formulário de Cadastro</h2>
 
-          <form action="" id="forms" method="getup">
-            <fieldset>
-              <input class="name-email" type="text" id="name" placeholder="Username" required />
+        <form action="" method="get" id="formes">
+          <fieldset class="fieldset__genero">
+            <legend>Gênero</legend>
+            <div class="radio__group">
+              <label class="radio__item">
+                <input type="radio" name="genero" value="feminino" required />
+                <span>Feminino</span>
+              </label>
+              <label class="radio__item">
+                <input type="radio" name="genero" value="masculino" />
+                <span>Masculino</span>
+              </label>
+              <label class="radio__item">
+                <input type="radio" name="genero" value="outro" />
+                <span>Outro</span>
+              </label>
+              <label class="radio__item">
+                <input type="radio" name="genero" value="prefiro-nao-dizer" />
+                <span>Prefiro não dizer</span>
+              </label>
+            </div>
+          </fieldset>
 
-              <input class="name-email" type="email" id="email" placeholder="Email" required />
+          <fieldset class="fieldset__estado-civil">
+            <legend>Estado Civil</legend>
+            <div class="tabs__estado-civil">
+              <input
+                type="radio"
+                name="estadoCivil"
+                id="ec-solteiro"
+                value="solteiro"
+                checked
+              />
+              <label for="ec-solteiro">Solteiro(a)</label>
 
-              <div class="box-datatel">
-                <div>
-                  <label for="nascimento">Nascimento</label>
-                  <input type="date" id="nascimento" required />
-                </div>
+              <input
+                type="radio"
+                name="estadoCivil"
+                id="ec-casado"
+                value="casado"
+              />
+              <label for="ec-casado">Casado(a)</label>
 
-                <div>
-                  <label for="telnumber">Telefone</label>
-                  <input type="tel" id="telnumber" maxlength="16" placeholder="(00) 9-0000-0000" />
-                </div>
-              </div>
+              <input
+                type="radio"
+                name="estadoCivil"
+                id="ec-divorciado"
+                value="divorciado"
+              />
+              <label for="ec-divorciado">Divorciado(a)</label>
 
-              <input class="name-email" type="text" id="assunto" placeholder="assunto" required />
-              
-              <hr>
+              <input
+                type="radio"
+                name="estadoCivil"
+                id="ec-viuvo"
+                value="viuvo"
+              />
+              <label for="ec-viuvo">Viúvo(a)</label>
 
-              <div class="texto__container">
-                <textarea id="mensagem" placeholder="Digite sua mensagem aqui..." maxlength="900" required></textarea>
-                <span id="contador">900</span>
-              </div>
+              <input
+                type="radio"
+                name="estadoCivil"
+                id="ec-uniao"
+                value="uniao-estavel"
+              />
+              <label for="ec-uniao">União Estável</label>
+            </div>
+          </fieldset>
 
-              <div class="box_upload">
-                <label for="userImage">Arquivo</label>
-                <input type="file" id="upload" accept="image/*" name="userImage" />
-              </div>
-            </fieldset>
+          <fieldset class="fieldset__estado">
+            <legend>Estado</legend>
+            <input type="hidden" name="estado" id="estadoValor" />
+            <button type="button" class="btn__estado" id="btnAbrirEstado">
+              <span id="estadoSelecionado">Selecionar estado</span>
+              <span class="icone__seta">▾</span>
+            </button>
+          </fieldset>
 
-  
-
-            <button type="submit" class="btn__submit">Enviar</button>
-          </form>
-        </div>
-
-        
-
-
+          <button type="submit" class="btn__submit">Enviar</button>
+        </form>
       </div>
     </section>
 
-    <!-- JS -->
-    <script src="/js/contato/contato.js"></script>
-    <script src="/js/contato/contato_tel.js"></script>
-    <script src="/js/contato/mensagens.js"></script>
+    <dialog id="dialogEstado" class="dialog__estado">
+      <div class="dialog__header">
+        <h3>Selecione o seu estado</h3>
+        <button
+          type="button"
+          class="btn__fechar"
+          id="btnFecharEstado"
+          aria-label="Fechar"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="dialog__grid" id="listaEstados"></div>
+    </dialog>
+
+    <script src="/js/formes/formes.js"></script>
   </body>
 </html>
