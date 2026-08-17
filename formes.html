@@ -39,47 +39,25 @@
 
           <fieldset class="fieldset__estado-civil">
             <legend>Estado Civil</legend>
-            <div class="tabs__estado-civil">
-              <input
-                type="radio"
-                name="estadoCivil"
-                id="ec-solteiro"
-                value="solteiro"
-                checked
-              />
-              <label for="ec-solteiro">Solteiro(a)</label>
+            <input
+              type="hidden"
+              name="estadoCivil"
+              id="estadoCivilValor"
+              value="solteiro"
+            />
+            <button type="button" class="btn__estado" id="btnAbrirEstadoCivil">
+              <span id="estadoCivilSelecionado">Solteiro(a)</span>
+              <span class="icone__seta">▾</span>
+            </button>
 
-              <input
-                type="radio"
-                name="estadoCivil"
-                id="ec-casado"
-                value="casado"
-              />
-              <label for="ec-casado">Casado(a)</label>
-
-              <input
-                type="radio"
-                name="estadoCivil"
-                id="ec-divorciado"
-                value="divorciado"
-              />
-              <label for="ec-divorciado">Divorciado(a)</label>
-
-              <input
-                type="radio"
-                name="estadoCivil"
-                id="ec-viuvo"
-                value="viuvo"
-              />
-              <label for="ec-viuvo">Viúvo(a)</label>
-
-              <input
-                type="radio"
-                name="estadoCivil"
-                id="ec-uniao"
-                value="uniao-estavel"
-              />
-              <label for="ec-uniao">União Estável</label>
+            <div class="popover" id="popoverEstadoCivil">
+              <ul class="popover__lista">
+                <li data-value="solteiro">Solteiro(a)</li>
+                <li data-value="casado">Casado(a)</li>
+                <li data-value="divorciado">Divorciado(a)</li>
+                <li data-value="viuvo">Viúvo(a)</li>
+                <li data-value="uniao-estavel">União Estável</li>
+              </ul>
             </div>
           </fieldset>
 
@@ -90,27 +68,20 @@
               <span id="estadoSelecionado">Selecionar estado</span>
               <span class="icone__seta">▾</span>
             </button>
+
+            <div class="popover" id="popoverEstado">
+              <ul class="popover__lista">
+                <!-- suas opções de estado aqui -->
+              </ul>
+            </div>
           </fieldset>
+
+          <div class="popover__overlay" id="popoverOverlay"></div>
 
           <button type="submit" class="btn__submit">Enviar</button>
         </form>
       </div>
     </section>
-
-    <dialog id="dialogEstado" class="dialog__estado">
-      <div class="dialog__header">
-        <h3>Selecione o seu estado</h3>
-        <button
-          type="button"
-          class="btn__fechar"
-          id="btnFecharEstado"
-          aria-label="Fechar"
-        >
-          &times;
-        </button>
-      </div>
-      <div class="dialog__grid" id="listaEstados"></div>
-    </dialog>
 
     <script src="/js/formes/formes.js"></script>
   </body>
