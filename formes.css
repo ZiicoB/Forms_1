@@ -73,49 +73,12 @@
   cursor: pointer;
 }
 
-/* ESTADO CIVIL - ABAS SELECIONAVEIS */
-.tabs__estado-civil {
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid #27e9b5;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #ffffff;
+/* ESTADO CIVIL */
+.fieldset__estado-civil,
+.fieldset__estado {
+  position: relative;
 }
 
-.tabs__estado-civil input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.tabs__estado-civil label {
-  flex: 1 1 auto;
-  text-align: center;
-  padding: 10px 8px;
-  font-size: 13px;
-  color: #162936;
-  cursor: pointer;
-  border-right: 1px solid #27e9b5;
-  transition: background 0.2s, color 0.2s;
-}
-
-.tabs__estado-civil label:last-of-type {
-  border-right: none;
-}
-
-.tabs__estado-civil input[type="radio"]:checked + label {
-  background: #27e9b5;
-  color: #162936;
-  font-weight: bold;
-}
-
-.tabs__estado-civil input[type="radio"]:focus-visible + label {
-  outline: 2px solid #162936;
-  outline-offset: -2px;
-}
-
-/* ESTADO - BOTAO QUE ABRE O MODAL */
 .btn__estado {
   width: 100%;
   display: flex;
@@ -142,6 +105,53 @@
   color: #27e9b5;
 }
 
+/* LISTA DE OPCOES */
+.popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: none;
+  background: #ffffff;
+  border: 1px solid #9aa4b2;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.322);
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.popover.aberto {
+  display: block;
+}
+
+.popover__lista {
+  list-style: none;
+}
+
+.popover__lista li {
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #162936;
+  cursor: pointer;
+}
+
+.popover__lista li:hover,
+.popover__lista li:focus-visible {
+  background: #27e9b5;
+}
+
+.popover__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+}
+
+.popover__overlay.ativo {
+  display: block;
+}
+
 /* BOTAO ENVIAR */
 .btn__submit {
   padding: 12px;
@@ -156,67 +166,4 @@
 
 .btn__submit:hover {
   filter: brightness(0.95);
-}
-
-/* DIALOG - SELECAO DE ESTADO */
-.dialog__estado {
-  width: 480px;
-  max-width: 90vw;
-  max-height: 80vh;
-  border: none;
-  border-radius: 15px;
-  padding: 1.5rem;
-  background: #c0c7d1;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.322);
-}
-
-.dialog__estado::backdrop {
-  background: rgba(22, 41, 54, 0.6);
-}
-
-.dialog__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.dialog__header h3 {
-  color: #162936;
-  font-size: 18px;
-}
-
-.btn__fechar {
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  line-height: 1;
-  color: #162936;
-  cursor: pointer;
-}
-
-.dialog__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  max-height: 60vh;
-  overflow-y: auto;
-  padding-right: 4px;
-}
-
-.item__estado {
-  text-align: left;
-  padding: 10px 12px;
-  background: #ffffff;
-  border: 1px solid #9aa4b2;
-  border-radius: 8px;
-  font-size: 13px;
-  color: #162936;
-  cursor: pointer;
-}
-
-.item__estado:hover,
-.item__estado:focus-visible {
-  background: #27e9b5;
-  border-color: #27e9b5;
 }

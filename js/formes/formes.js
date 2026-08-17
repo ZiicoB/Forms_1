@@ -28,48 +28,80 @@ const estados = [
   { sigla: "TO", nome: "Tocantins" },
 ];
 
-const dialogEstado = document.getElementById("dialogEstado");
+const formes = document.getElementById("formes");
+const popoverOverlay = document.getElementById("popoverOverlay");
+
+const btnAbrirEstadoCivil = document.getElementById("btnAbrirEstadoCivil");
+const popoverEstadoCivil = document.getElementById("popoverEstadoCivil");
+const estadoCivilSelecionado = document.getElementById(
+  "estadoCivilSelecionado"
+);
+const estadoCivilValor = document.getElementById("estadoCivilValor");
+
 const btnAbrirEstado = document.getElementById("btnAbrirEstado");
-const btnFecharEstado = document.getElementById("btnFecharEstado");
-const listaEstados = document.getElementById("listaEstados");
+const popoverEstado = document.getElementById("popoverEstado");
+const listaEstados = popoverEstado.querySelector(".popover__lista");
 const estadoSelecionado = document.getElementById("estadoSelecionado");
 const estadoValor = document.getElementById("estadoValor");
-const formes = document.getElementById("formes");
 
+const popovers = [
+  { btn: btnAbrirEstadoCivil, popover: popoverEstadoCivil },
+  { btn: btnAbrirEstado, popover: popoverEstado },
+];
+
+function fecharPopovers() {
+  popovers.forEach(({ popover }) => popover.classList.remove("aberto"));
+  popoverOverlay.classList.remove("ativo");
+}
+
+function abrirPopover(popover) {
+  fecharPopovers();
+  popover.classList.add("aberto");
+  popoverOverlay.classList.add("ativo");
+}
+
+popovers.forEach(({ btn, popover }) => {
+  btn.addEventListener("click", () => {
+    const estaAberto = popover.classList.contains("aberto");
+    estaAberto ? fecharPopovers() : abrirPopover(popover);
+  });
+});
+
+popoverOverlay.addEventListener("click", fecharPopovers);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") fecharPopovers();
+});
+
+// preenche as opções do popover de estado civil (já existentes no HTML)
+popoverEstadoCivil.querySelectorAll("li").forEach((item) => {
+  item.addEventListener("click", () => {
+    estadoCivilValor.value = item.dataset.value;
+    estadoCivilSelecionado.textContent = item.textContent;
+    fecharPopovers();
+  });
+});
+
+// gera as opções do popover de estado a partir da lista de estados
 estados.forEach((estado) => {
-  const item = document.createElement("button");
-  item.type = "button";
-  item.className = "item__estado";
+  const item = document.createElement("li");
+  item.dataset.value = estado.sigla;
   item.textContent = `${estado.sigla} - ${estado.nome}`;
 
   item.addEventListener("click", () => {
     estadoValor.value = estado.sigla;
-    estadoSelecionado.textContent = `${estado.sigla} - ${estado.nome}`;
+    estadoSelecionado.textContent = item.textContent;
     btnAbrirEstado.classList.remove("erro");
-    dialogEstado.close();
+    fecharPopovers();
   });
 
   listaEstados.appendChild(item);
-});
-
-btnAbrirEstado.addEventListener("click", () => {
-  dialogEstado.showModal();
-});
-
-btnFecharEstado.addEventListener("click", () => {
-  dialogEstado.close();
-});
-
-dialogEstado.addEventListener("click", (event) => {
-  if (event.target === dialogEstado) {
-    dialogEstado.close();
-  }
 });
 
 formes.addEventListener("submit", (event) => {
   if (!estadoValor.value) {
     event.preventDefault();
     btnAbrirEstado.classList.add("erro");
-    dialogEstado.showModal();
+    abrirPopover(popoverEstado);
   }
 });
