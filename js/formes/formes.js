@@ -105,3 +105,24 @@ formes.addEventListener("submit", (event) => {
     abrirPopover(popoverEstado);
   }
 });
+
+// mascara do telefone: (00) 9-0000-0000
+const telefoneInput = document.getElementById("telefone");
+
+telefoneInput.addEventListener("input", () => {
+  let value = telefoneInput.value.replace(/\D/g, "");
+
+  if (value.length > 11) value = value.slice(0, 11);
+
+  if (value.length >= 2) {
+    value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+  }
+  if (value.length >= 4) {
+    value = `${value.slice(0, 6)}-${value.slice(6)}`;
+  }
+  if (value.length >= 8) {
+    value = `${value.slice(0, 11)}-${value.slice(11)}`;
+  }
+
+  telefoneInput.value = value;
+});

@@ -15,6 +15,60 @@
         <h2>Formulário de Cadastro</h2>
 
         <form action="" method="get" id="formes">
+          <fieldset class="fieldset__dados-pessoais">
+            <legend>Dados Pessoais</legend>
+
+            <div class="campo">
+              <label for="nome">Nome</label>
+              <input type="text" name="nome" id="nome" required />
+            </div>
+
+            <div class="campo__linha">
+              <div class="campo">
+                <label for="idade">Idade</label>
+                <input
+                  type="number"
+                  name="idade"
+                  id="idade"
+                  min="18"
+                  max="120"
+                  required
+                />
+              </div>
+
+              <div class="campo">
+                <label for="nascimento">Data de Nascimento</label>
+                <input type="date" name="nascimento" id="nascimento" required />
+              </div>
+            </div>
+
+            <div class="campo__linha">
+              <div class="campo">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required />
+              </div>
+
+              <div class="campo">
+                <label for="telefone">Telefone</label>
+                <input
+                  type="tel"
+                  name="telefone"
+                  id="telefone"
+                  placeholder="(00) 9-0000-0000"
+                  maxlength="16"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="foto">Foto</label>
+              <input type="file" name="foto" id="foto" accept="image/*" />
+            </div>
+          </fieldset>
+
+          <hr class="divisoria" />
+
           <fieldset class="fieldset__genero">
             <legend>Gênero</legend>
             <div class="radio__group">
@@ -27,56 +81,109 @@
                 <span>Masculino</span>
               </label>
               <label class="radio__item">
-                <input type="radio" name="genero" value="outro" />
-                <span>Outro</span>
-              </label>
-              <label class="radio__item">
                 <input type="radio" name="genero" value="prefiro-nao-dizer" />
                 <span>Prefiro não dizer</span>
               </label>
             </div>
           </fieldset>
 
-          <fieldset class="fieldset__estado-civil">
-            <legend>Estado Civil</legend>
-            <input
-              type="hidden"
-              name="estadoCivil"
-              id="estadoCivilValor"
-              value="solteiro"
-            />
-            <button type="button" class="btn__estado" id="btnAbrirEstadoCivil">
-              <span id="estadoCivilSelecionado">Solteiro(a)</span>
-              <span class="icone__seta">▾</span>
-            </button>
+          <div class="campo__linha">
+            <fieldset class="fieldset__estado-civil">
+              <legend>Situação Civil</legend>
+              <input
+                type="hidden"
+                name="estadoCivil"
+                id="estadoCivilValor"
+                value="solteiro"
+              />
+              <button
+                type="button"
+                class="btn__estado"
+                id="btnAbrirEstadoCivil"
+              >
+                <span id="estadoCivilSelecionado">Solteiro(a)</span>
+                <span class="icone__seta">▾</span>
+              </button>
 
-            <div class="popover" id="popoverEstadoCivil">
-              <ul class="popover__lista">
-                <li data-value="solteiro">Solteiro</li>
-                <li data-value="casado">Casado(a)</li>
-                <li data-value="divorciado">Divorciado(a)</li>
-                <li data-value="viuvo">Viúvo(a)</li>
-                <li data-value="uniao-estavel">União Estável</li>
-              </ul>
+              <div class="popover" id="popoverEstadoCivil">
+                <ul class="popover__lista">
+                  <li data-value="solteiro">Solteiro</li>
+                  <li data-value="casado">Casado(a)</li>
+                  <li data-value="divorciado">Divorciado(a)</li>
+                  <li data-value="viuvo">Viúvo(a)</li>
+                  <li data-value="uniao-estavel">União Estável</li>
+                </ul>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset__estado">
+              <legend>Estado</legend>
+              <input type="hidden" name="estado" id="estadoValor" />
+              <button type="button" class="btn__estado" id="btnAbrirEstado">
+                <span id="estadoSelecionado">Selecionar estado</span>
+                <span class="icone__seta">▾</span>
+              </button>
+
+              <div class="popover" id="popoverEstado">
+                <ul class="popover__lista">
+                  <!-- suas opções de estado aqui -->
+                </ul>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="campo__linha">
+            <div class="campo">
+              <label for="cidade">Cidade</label>
+              <input type="text" name="cidade" id="cidade" required />
             </div>
-          </fieldset>
 
-          <fieldset class="fieldset__estado">
-            <legend>Estado</legend>
-            <input type="hidden" name="estado" id="estadoValor" />
-            <button type="button" class="btn__estado" id="btnAbrirEstado">
-              <span id="estadoSelecionado">Selecionar estado</span>
-              <span class="icone__seta">▾</span>
-            </button>
-
-            <div class="popover" id="popoverEstado">
-              <ul class="popover__lista">
-                <!-- suas opções de estado aqui -->
-              </ul>
+            <div class="campo">
+              <label for="bairro">Bairro</label>
+              <input type="text" name="bairro" id="bairro" required />
             </div>
-          </fieldset>
+          </div>
 
           <div class="popover__overlay" id="popoverOverlay"></div>
+
+          <hr class="divisoria" />
+
+          <fieldset class="fieldset__redes-sociais">
+            <legend>Redes Sociais</legend>
+            <div class="checkbox__group">
+              <label class="checkbox__item">
+                <input
+                  type="checkbox"
+                  name="social"
+                  id="social-instagram"
+                  value="instagram"
+                />
+                <span>Instagram</span>
+              </label>
+              <label class="checkbox__item">
+                <input
+                  type="checkbox"
+                  name="social"
+                  id="social-facebook"
+                  value="facebook"
+                />
+                <span>Facebook</span>
+              </label>
+              <label class="checkbox__item">
+                <input
+                  type="checkbox"
+                  name="social"
+                  id="social-linkedin"
+                  value="linkedin"
+                />
+                <span>Linkedin</span>
+              </label>
+              <label class="checkbox__item">
+                <input type="checkbox" name="social" id="social-x" value="x" />
+                <span>X</span>
+              </label>
+            </div>
+          </fieldset>
 
           <button type="submit" class="btn__submit">Enviar</button>
         </form>

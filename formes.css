@@ -50,11 +50,74 @@
   margin-bottom: 10px;
 }
 
+/* DADOS PESSOAIS */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.campo:last-child {
+  margin-bottom: 0;
+}
+
+.campo label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #162936;
+}
+
+.campo input {
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid #9aa4b2;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #162936;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: #27e9b5;
+}
+
+.campo input[type="file"] {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* LINHA COM CAMPOS LADO A LADO (largura menor cada) */
+.campo__linha {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.campo__linha .campo,
+.campo__linha fieldset {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+/* quando a linha ja e filha direta do form, o gap do form cuida do espacamento */
+.card__formes form > .campo__linha {
+  margin-bottom: 0;
+}
+
+/* DIVISORIA ENTRE SECOES */
+.divisoria {
+  border: none;
+  border-top: 1px solid #9aa4b2;
+}
+
 /* GENERO */
 .radio__group {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  padding: 10px 0;
 }
 
 .radio__item {
@@ -150,6 +213,30 @@
 
 .popover__overlay.ativo {
   display: block;
+}
+
+/* REDES SOCIAIS */
+.checkbox__group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.checkbox__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #162936;
+  cursor: pointer;
+}
+
+.checkbox__item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #27e9b5;
+  cursor: pointer;
 }
 
 /* BOTAO ENVIAR */
